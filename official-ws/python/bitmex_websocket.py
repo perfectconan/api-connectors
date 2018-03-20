@@ -172,7 +172,7 @@ class BitMEXWebsocket:
 
     def __wait_for_symbol(self, symbol):
         '''On subscribe, this data will come down. Wait for it.'''
-        while not {'instrument', 'trade', 'quote'} <= set(self.data):
+        while not {'instrument', 'trade', 'quote', 'orderBookL2'} <= set(self.data):
             sleep(0.1)
 
     def __send_command(self, command, args=None):
